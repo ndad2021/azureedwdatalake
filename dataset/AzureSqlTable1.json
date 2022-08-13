@@ -1,0 +1,71 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "symbol",
+				"type": "varchar"
+			},
+			{
+				"name": "company_name",
+				"type": "varchar"
+			},
+			{
+				"name": "security_name",
+				"type": "varchar"
+			},
+			{
+				"name": "market_category",
+				"type": "char"
+			},
+			{
+				"name": "test_issue",
+				"type": "char"
+			},
+			{
+				"name": "financial_status",
+				"type": "char"
+			},
+			{
+				"name": "round_lot_size",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "file_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "row_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "create_user_id",
+				"type": "char"
+			},
+			{
+				"name": "update_user_id",
+				"type": "char"
+			},
+			{
+				"name": "create_timestamp",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "frd_staging",
+			"table": "STG_NASDAQ_LISTED_DS"
+		}
+	}
+}
