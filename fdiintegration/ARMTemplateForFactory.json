@@ -1059,7 +1059,7 @@
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 0
+									"skipLineCount": 1
 								}
 							},
 							"sink": {
@@ -2189,7 +2189,8 @@
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureDataLakeStoreLocation"
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "SalesOrder.csv"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
