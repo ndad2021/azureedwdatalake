@@ -1,0 +1,101 @@
+{
+	"name": "DestinationDataset_dmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SalesAmount",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "TotalProductCost",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ProductStandardCost",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "UnitPriceDiscountPct",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "ExtendedAmount",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "UnitPrice",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "OrderQuantity",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "SalesTerritoryKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ShipDateKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "DueDateKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "OrderDateKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "CustomerKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ResellerKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "SalesOrderLineKey",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Sales"
+		}
+	}
+}
