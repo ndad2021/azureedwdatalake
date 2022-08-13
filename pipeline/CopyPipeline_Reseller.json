@@ -33,12 +33,15 @@
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings",
-							"skipLineCount": 0
+							"skipLineCount": 1
 						}
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "Truncate table dbo.Reseller"
+						"preCopyScript": "Truncate table dbo.Reseller",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": true,
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
@@ -62,7 +65,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "[Not Applicable]0",
+									"name": "98104",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -74,7 +77,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]1",
+									"name": "United States",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -86,7 +89,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]2",
+									"name": "Washington",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -98,7 +101,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]3",
+									"name": "Seattle",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -110,7 +113,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]4",
+									"name": "A Bike Store",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -122,7 +125,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]5",
+									"name": "Value Added Reseller",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -134,7 +137,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]6",
+									"name": "AW00000001",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -146,7 +149,7 @@
 							},
 							{
 								"source": {
-									"name": "-1",
+									"name": "1",
 									"type": "String",
 									"physicalType": "String"
 								},
