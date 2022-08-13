@@ -1,7 +1,6 @@
 {
 	"name": "AzureDataLakeStore1",
 	"properties": {
-		"description": "Source Landing zone",
 		"annotations": [],
 		"type": "AzureDataLakeStore",
 		"typeProperties": {
