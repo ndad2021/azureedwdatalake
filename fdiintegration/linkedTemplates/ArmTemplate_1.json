@@ -1289,7 +1289,6 @@
 								"storeSettings": {
 									"type": "AzureDataLakeStoreReadSettings",
 									"recursive": false,
-									"wildcardFileName": "*",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
