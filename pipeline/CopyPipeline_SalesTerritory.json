@@ -38,7 +38,9 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"tableOption": "autoCreate"
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"validateDataConsistency": true,
@@ -64,7 +66,9 @@
 									"ordinal": 1
 								},
 								"sink": {
-									"name": "SalesTerritoryKey"
+									"name": "SalesTerritoryKey",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -73,7 +77,9 @@
 									"ordinal": 2
 								},
 								"sink": {
-									"name": "Region"
+									"name": "Region",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -82,7 +88,9 @@
 									"ordinal": 3
 								},
 								"sink": {
-									"name": "Country"
+									"name": "Country",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -91,7 +99,9 @@
 									"ordinal": 4
 								},
 								"sink": {
-									"name": "Group"
+									"name": "Group1",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							}
 						],
