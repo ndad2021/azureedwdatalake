@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_dmp",
+				"name": "CopyPipeline_Sales",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
