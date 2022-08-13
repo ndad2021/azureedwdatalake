@@ -1,0 +1,9 @@
+{
+	"name": "fdiintegration",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "68b4f7a6-5672-4e2b-a998-9334b430c733",
+		"tenantId": "8d09f28d-2b54-4761-98f1-de38762cd939"
+	}
+}
