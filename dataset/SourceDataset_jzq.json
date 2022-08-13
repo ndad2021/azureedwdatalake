@@ -1,0 +1,55 @@
+{
+	"name": "SourceDataset_jzq",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "Reseller.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "[Not Applicable]0",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]1",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]2",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]3",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]4",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]5",
+				"type": "String"
+			},
+			{
+				"name": "[Not Applicable]6",
+				"type": "String"
+			},
+			{
+				"name": "-1",
+				"type": "String"
+			}
+		]
+	}
+}
