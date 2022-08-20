@@ -546,7 +546,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:25:24Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_th1')]"
@@ -706,7 +707,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:22:24Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_ohe')]"
@@ -903,7 +905,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:31:46Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_czw')]"
@@ -1100,7 +1103,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:43:45Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_jzq')]"
@@ -1352,7 +1356,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:49:48Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_dmp')]"
@@ -1492,7 +1497,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T15:20:41Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_d81')]"
@@ -1634,7 +1640,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T15:49:57Z"
 			},
 			"dependsOn": []
 		},
@@ -1731,7 +1738,8 @@
 						"type": "array"
 					}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T12:41:56Z"
 			},
 			"dependsOn": []
 		},
@@ -1888,7 +1896,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T12:41:57Z"
 			},
 			"dependsOn": []
 		},
@@ -1914,7 +1923,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE  TABLE_SCHEMA = 'dbo' and TABLE_NAME <> 'TGT_NASDAQ_LISTED_DS'",
+								"sqlReaderQuery": "SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE  TABLE_SCHEMA = 'dbo' and TABLE_NAME not in ( 'TGT_NASDAQ_LISTED_DS','SalesTerritory')",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -1957,7 +1966,8 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2022-08-13T14:02:36Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/IterateAndCopySQLTables')]"
