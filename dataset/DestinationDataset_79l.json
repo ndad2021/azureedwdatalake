@@ -12,5 +12,6 @@
 			"schema": "dbo",
 			"table": "SalesTerritory"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

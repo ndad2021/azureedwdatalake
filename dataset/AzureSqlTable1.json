@@ -67,5 +67,6 @@
 			"schema": "frd_staging",
 			"table": "STG_NASDAQ_LISTED_DS"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

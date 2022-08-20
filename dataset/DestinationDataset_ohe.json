@@ -55,5 +55,6 @@
 			"schema": "dbo",
 			"table": "Date"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
