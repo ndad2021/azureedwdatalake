@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_ohe",
+	"name": "Date",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

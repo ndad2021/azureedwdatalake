@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_jzq",
+	"name": "Reseller",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

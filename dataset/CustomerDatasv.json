@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_th1",
+	"name": "CustomerDatasv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStore1",

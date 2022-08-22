@@ -132,13 +132,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_ohe",
+						"referenceName": "Datecsv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_ohe",
+						"referenceName": "Date",
 						"type": "DatasetReference"
 					}
 				]

@@ -135,13 +135,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_th1",
+						"referenceName": "CustomerDatasv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_th1",
+						"referenceName": "CustomerData",
 						"type": "DatasetReference"
 					}
 				]

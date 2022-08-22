@@ -169,13 +169,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_czw",
+						"referenceName": "ProductDatacsv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_czw",
+						"referenceName": "ProductData",
 						"type": "DatasetReference"
 					}
 				]

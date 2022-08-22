@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_d81",
+	"name": "SalesOrder",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

@@ -224,13 +224,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_dmp",
+						"referenceName": "Salescsv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_dmp",
+						"referenceName": "Sales",
 						"type": "DatasetReference"
 					}
 				]

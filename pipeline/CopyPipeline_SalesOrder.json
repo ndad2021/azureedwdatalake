@@ -112,13 +112,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_d81",
+						"referenceName": "SalesOrdercsv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_d81",
+						"referenceName": "SalesOrder",
 						"type": "DatasetReference"
 					}
 				]

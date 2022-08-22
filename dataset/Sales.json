@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_dmp",
+	"name": "Sales",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

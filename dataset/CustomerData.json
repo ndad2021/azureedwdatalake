@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_th1",
+	"name": "CustomerData",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

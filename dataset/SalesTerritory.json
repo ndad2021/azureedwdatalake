@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_79l",
+	"name": "SalesTerritory",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",

@@ -169,13 +169,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_jzq",
+						"referenceName": "Resellercsv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_jzq",
+						"referenceName": "Reseller",
 						"type": "DatasetReference"
 					}
 				]
