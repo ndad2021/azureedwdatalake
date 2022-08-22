@@ -13,107 +13,7 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_czw')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStore1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "ProductData.csv"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_d81')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStore1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "SalesOrder.csv"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": false,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_dmp')]",
+			"name": "[concat(parameters('factoryName'), '/Salescsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -184,7 +84,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_jzq')]",
+			"name": "[concat(parameters('factoryName'), '/Resellercsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -242,7 +142,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_ohe')]",
+			"name": "[concat(parameters('factoryName'), '/Datecsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -289,7 +189,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_th1')]",
+			"name": "[concat(parameters('factoryName'), '/CustomerDatasv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -358,33 +258,6 @@
 						"value": "@dataset().Table",
 						"type": "Expression"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "Managed",
-				"typeProperties": {
-					"computeProperties": {
-						"location": "East US",
-						"dataFlowProperties": {
-							"computeType": "General",
-							"coreCount": 8,
-							"timeToLive": 10,
-							"cleanup": false
-						},
-						"pipelineExternalComputeScaleProperties": {
-							"timeToLive": 60
-						}
-					}
-				},
-				"managedVirtualNetwork": {
-					"type": "ManagedVirtualNetworkReference",
-					"referenceName": "default"
 				}
 			},
 			"dependsOn": []
@@ -528,14 +401,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_th1",
+								"referenceName": "CustomerDatasv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_th1",
+								"referenceName": "CustomerData",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -550,7 +423,7 @@
 				"lastPublishTime": "2022-08-13T14:25:24Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_th1')]"
+				"[concat(variables('factoryId'), '/datasets/CustomerDatasv')]"
 			]
 		},
 		{
@@ -689,14 +562,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_ohe",
+								"referenceName": "Datecsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_ohe",
+								"referenceName": "Date",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -711,7 +584,7 @@
 				"lastPublishTime": "2022-08-13T14:22:24Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_ohe')]"
+				"[concat(variables('factoryId'), '/datasets/Datecsv')]"
 			]
 		},
 		{
@@ -887,14 +760,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_czw",
+								"referenceName": "ProductDatacsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_czw",
+								"referenceName": "ProductData",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -908,9 +781,7 @@
 				"annotations": [],
 				"lastPublishTime": "2022-08-13T14:31:46Z"
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_czw')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/CopyPipeline_Reseller')]",
@@ -1085,14 +956,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_jzq",
+								"referenceName": "Resellercsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_jzq",
+								"referenceName": "Reseller",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1107,7 +978,7 @@
 				"lastPublishTime": "2022-08-13T14:43:45Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_jzq')]"
+				"[concat(variables('factoryId'), '/datasets/Resellercsv')]"
 			]
 		},
 		{
@@ -1338,14 +1209,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_dmp",
+								"referenceName": "Salescsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_dmp",
+								"referenceName": "Sales",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1360,7 +1231,7 @@
 				"lastPublishTime": "2022-08-13T14:49:48Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_dmp')]"
+				"[concat(variables('factoryId'), '/datasets/Salescsv')]"
 			]
 		},
 		{
@@ -1479,14 +1350,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_d81",
+								"referenceName": "SalesOrdercsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_d81",
+								"referenceName": "SalesOrder",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1500,9 +1371,7 @@
 				"annotations": [],
 				"lastPublishTime": "2022-08-13T15:20:41Z"
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_d81')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/CopyPipeline_SalesTerritory')]",
@@ -1622,14 +1491,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_79l",
+								"referenceName": "SalesTerritorycsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_79l",
+								"referenceName": "SalesTerritory",
 								"type": "DatasetReference",
 								"parameters": {}
 							}

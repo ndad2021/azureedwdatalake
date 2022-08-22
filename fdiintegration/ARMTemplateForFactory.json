@@ -15,10 +15,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
-		"AzureSqlDatabaseLinkedService_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseLinkedService'"
-		},
 		"AzureStorageLinkedService_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureStorageLinkedService'"
@@ -183,14 +179,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_th1",
+								"referenceName": "CustomerDatasv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_th1",
+								"referenceName": "CustomerData",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -205,8 +201,8 @@
 				"lastPublishTime": "2022-08-13T14:25:24Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_th1')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_th1')]"
+				"[concat(variables('factoryId'), '/datasets/CustomerDatasv')]",
+				"[concat(variables('factoryId'), '/datasets/CustomerData')]"
 			]
 		},
 		{
@@ -345,14 +341,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_ohe",
+								"referenceName": "Datecsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_ohe",
+								"referenceName": "Date",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -367,8 +363,8 @@
 				"lastPublishTime": "2022-08-13T14:22:24Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_ohe')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_ohe')]"
+				"[concat(variables('factoryId'), '/datasets/Datecsv')]",
+				"[concat(variables('factoryId'), '/datasets/Date')]"
 			]
 		},
 		{
@@ -544,14 +540,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_czw",
+								"referenceName": "ProductDatacsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_czw",
+								"referenceName": "ProductData",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -566,8 +562,8 @@
 				"lastPublishTime": "2022-08-13T14:31:46Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_czw')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_czw')]",
+				"[concat(variables('factoryId'), '/datasets/ProductDatacsv')]",
+				"[concat(variables('factoryId'), '/datasets/ProductData')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
 			]
 		},
@@ -744,14 +740,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_jzq",
+								"referenceName": "Resellercsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_jzq",
+								"referenceName": "Reseller",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -766,8 +762,8 @@
 				"lastPublishTime": "2022-08-13T14:43:45Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_jzq')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_jzq')]",
+				"[concat(variables('factoryId'), '/datasets/Resellercsv')]",
+				"[concat(variables('factoryId'), '/datasets/Reseller')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
 			]
 		},
@@ -999,14 +995,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_dmp",
+								"referenceName": "Salescsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_dmp",
+								"referenceName": "Sales",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1021,8 +1017,8 @@
 				"lastPublishTime": "2022-08-13T14:49:48Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_dmp')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_dmp')]",
+				"[concat(variables('factoryId'), '/datasets/Salescsv')]",
+				"[concat(variables('factoryId'), '/datasets/Sales')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
 			]
 		},
@@ -1142,14 +1138,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_d81",
+								"referenceName": "SalesOrdercsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_d81",
+								"referenceName": "SalesOrder",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1164,8 +1160,8 @@
 				"lastPublishTime": "2022-08-13T15:20:41Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_d81')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_d81')]",
+				"[concat(variables('factoryId'), '/datasets/SalesOrdercsv')]",
+				"[concat(variables('factoryId'), '/datasets/SalesOrder')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
 			]
 		},
@@ -1287,14 +1283,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "SourceDataset_79l",
+								"referenceName": "SalesTerritorycsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "DestinationDataset_79l",
+								"referenceName": "SalesTerritory",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1309,8 +1305,8 @@
 				"lastPublishTime": "2022-08-13T15:49:57Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_79l')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_79l')]",
+				"[concat(variables('factoryId'), '/datasets/SalesTerritorycsv')]",
+				"[concat(variables('factoryId'), '/datasets/SalesTerritory')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
 			]
 		},
@@ -1811,7 +1807,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_79l')]",
+			"name": "[concat(parameters('factoryName'), '/SalesTerritory')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1832,7 +1828,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_czw')]",
+			"name": "[concat(parameters('factoryName'), '/ProductData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1908,7 +1904,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_d81')]",
+			"name": "[concat(parameters('factoryName'), '/SalesOrder')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -1954,7 +1950,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_dmp')]",
+			"name": "[concat(parameters('factoryName'), '/Sales')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2060,7 +2056,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_jzq')]",
+			"name": "[concat(parameters('factoryName'), '/Reseller')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2130,7 +2126,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_ohe')]",
+			"name": "[concat(parameters('factoryName'), '/Date')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2194,7 +2190,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_th1')]",
+			"name": "[concat(parameters('factoryName'), '/CustomerData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2296,7 +2292,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_79l')]",
+			"name": "[concat(parameters('factoryName'), '/SalesTerritorycsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2336,7 +2332,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_czw')]",
+			"name": "[concat(parameters('factoryName'), '/ProductDatacsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2391,7 +2387,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_d81')]",
+			"name": "[concat(parameters('factoryName'), '/SalesOrdercsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2440,7 +2436,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_dmp')]",
+			"name": "[concat(parameters('factoryName'), '/Salescsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2513,7 +2509,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_jzq')]",
+			"name": "[concat(parameters('factoryName'), '/Resellercsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2573,7 +2569,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_ohe')]",
+			"name": "[concat(parameters('factoryName'), '/Datecsv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2622,7 +2618,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_th1')]",
+			"name": "[concat(parameters('factoryName'), '/CustomerDatasv')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2743,19 +2739,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabaseLinkedService')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabaseLinkedService_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzureStorageLinkedService')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -2765,45 +2748,6 @@
 				"typeProperties": {
 					"connectionString": "[parameters('AzureStorageLinkedService_connectionString')]"
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "Managed",
-				"typeProperties": {
-					"computeProperties": {
-						"location": "East US",
-						"dataFlowProperties": {
-							"computeType": "General",
-							"coreCount": 8,
-							"timeToLive": 10,
-							"cleanup": false
-						},
-						"pipelineExternalComputeScaleProperties": {
-							"timeToLive": 60
-						}
-					}
-				},
-				"managedVirtualNetwork": {
-					"type": "ManagedVirtualNetworkReference",
-					"referenceName": "default"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/integrationRuntime2')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"typeProperties": {}
 			},
 			"dependsOn": []
 		},
