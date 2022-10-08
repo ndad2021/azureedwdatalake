@@ -25,6 +25,9 @@
 				},
 				{
 					"name": "RankMoviesByRatings"
+				},
+				{
+					"name": "AggregateRatings"
 				}
 			],
 			"scriptLines": [
@@ -54,7 +57,13 @@
 				"DerivedPrimaryGenre window(over(PrimaryGenre,",
 				"          year),",
 				"     desc({Rotten Tomato}, true),",
-				"     Ratings = rank()) ~> RankMoviesByRatings"
+				"     Ratings = rank()) ~> RankMoviesByRatings",
+				"RankMoviesByRatings aggregate(groupBy({} = ERROR_FUNCTION(''),",
+				"          {} = ERROR_FUNCTION('')),",
+				"     AverageRatings = avg(toInteger({Rotten Tomato})),",
+				"          HighestRated = first(title),",
+				"          LowestRated = last(title),",
+				"          NumberOfMovies = count()) ~> AggregateRatings"
 			]
 		}
 	}
