@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "moviesrank",
+						"referenceName": "AzureSqlDWLinkedService",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -43,6 +43,9 @@
 				},
 				{
 					"name": "AggregateRatings"
+				},
+				{
+					"name": "alterRow1"
 				}
 			],
 			"scriptLines": [
@@ -79,14 +82,20 @@
 				"          HighestRated = first(title),",
 				"          LowestRated = last(title),",
 				"          NumberOfMovies = count()) ~> AggregateRatings",
-				"AggregateRatings sink(allowSchemaDrift: true,",
+				"AggregateRatings alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     umask: 0022,",
-				"     preCommands: [],",
-				"     postCommands: [],",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['PrimaryGenre','year'],",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     format: 'table') ~> sink1",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
 				"AggregateRatings sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0022,",
