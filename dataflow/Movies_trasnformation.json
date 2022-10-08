@@ -98,11 +98,13 @@
 				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
 				"AggregateRatings sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     umask: 0022,",
+				"     partitionFileNames:['MoviesRankTest'],",
+				"     umask: 0777,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink2"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink2"
 			]
 		}
 	}
