@@ -27,7 +27,7 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureDataLakeStoreReadSettings",
+							"type": "AzureBlobFSReadSettings",
 							"recursive": false,
 							"enablePartitionDiscovery": false
 						},

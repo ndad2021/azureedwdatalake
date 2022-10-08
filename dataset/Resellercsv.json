@@ -2,15 +2,14 @@
 	"name": "Resellercsv",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStore1",
+			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureDataLakeStoreLocation",
-				"fileName": "Reseller.csv"
+				"type": "AzureBlobStorageLocation"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
