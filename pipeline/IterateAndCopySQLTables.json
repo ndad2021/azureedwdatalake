@@ -55,7 +55,8 @@
 									"linkedServiceName": {
 										"referenceName": "AzureStorageLinkedService",
 										"type": "LinkedServiceReference"
-									}
+									},
+									"path": "blob/polybase"
 								}
 							},
 							"inputs": [
