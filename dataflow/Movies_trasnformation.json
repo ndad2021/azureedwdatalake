@@ -12,7 +12,15 @@
 					"name": "MoviesADLS"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSynapseAnalyticsTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "select1"
@@ -28,6 +36,9 @@
 				},
 				{
 					"name": "AggregateRatings"
+				},
+				{
+					"name": "alterRow1"
 				}
 			],
 			"scriptLines": [
@@ -63,7 +74,21 @@
 				"     AverageRatings = avg(toInteger({Rotten Tomato})),",
 				"          HighestRated = first(title),",
 				"          LowestRated = last(title),",
-				"          NumberOfMovies = count()) ~> AggregateRatings"
+				"          NumberOfMovies = count()) ~> AggregateRatings",
+				"AggregateRatings alterRow(upsertIf(true())) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['PrimaryGenre','year'],",
+				"     format: 'table',",
+				"     staged: true,",
+				"     allowCopyCommand: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
 	}
