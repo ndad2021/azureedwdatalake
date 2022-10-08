@@ -15,21 +15,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
+		"AzureStorageLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureStorageLinkedService'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://fdistoragedemo.dfs.core.windows.net/"
-		},
-		"AzureStorageLinkedService_properties_typeProperties_serviceEndpoint": {
-			"type": "string",
-			"defaultValue": "https://fdistoragedemo.blob.core.windows.net/"
-		},
-		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
-			"type": "string",
-			"defaultValue": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
-		},
-		"AzureDataLakeStorage937_properties_groupId": {
-			"type": "string",
-			"defaultValue": "dfs"
 		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"type": "string",
@@ -38,6 +30,14 @@
 		"AzureBlobStorage463_properties_groupId": {
 			"type": "string",
 			"defaultValue": "blob"
+		},
+		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureDataLakeStorage937_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
 		},
 		"containerUri": {
 			"type": "string",
@@ -72,11 +72,11 @@
 					"AzureSqlDatabase1_connectionString": {
 						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
 					},
-					"AzureDataLakeStorage1_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					"AzureBlobStorage463_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureBlobStorage463_properties_privateLinkResourceId')]"
 					},
-					"AzureStorageLinkedService_properties_typeProperties_serviceEndpoint": {
-						"value": "[parameters('AzureStorageLinkedService_properties_typeProperties_serviceEndpoint')]"
+					"AzureBlobStorage463_properties_groupId": {
+						"value": "[parameters('AzureBlobStorage463_properties_groupId')]"
 					}
 				}
 			},
@@ -96,17 +96,17 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"AzureStorageLinkedService_connectionString": {
+						"value": "[parameters('AzureStorageLinkedService_connectionString')]"
+					},
 					"AzureDataLakeStorage937_properties_privateLinkResourceId": {
 						"value": "[parameters('AzureDataLakeStorage937_properties_privateLinkResourceId')]"
 					},
 					"AzureDataLakeStorage937_properties_groupId": {
 						"value": "[parameters('AzureDataLakeStorage937_properties_groupId')]"
 					},
-					"AzureBlobStorage463_properties_privateLinkResourceId": {
-						"value": "[parameters('AzureBlobStorage463_properties_privateLinkResourceId')]"
-					},
-					"AzureBlobStorage463_properties_groupId": {
-						"value": "[parameters('AzureBlobStorage463_properties_groupId')]"
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					}
 				}
 			},

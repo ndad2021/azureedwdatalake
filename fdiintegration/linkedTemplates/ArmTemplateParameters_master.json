@@ -11,23 +11,23 @@
 		"AzureSqlDatabase1_connectionString": {
 			"value": ""
 		},
+		"AzureStorageLinkedService_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://fdistoragedemo.dfs.core.windows.net/"
-		},
-		"AzureStorageLinkedService_properties_typeProperties_serviceEndpoint": {
-			"value": "https://fdistoragedemo.blob.core.windows.net/"
-		},
-		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
-			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
-		},
-		"AzureDataLakeStorage937_properties_groupId": {
-			"value": "dfs"
 		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
 		},
 		"AzureBlobStorage463_properties_groupId": {
 			"value": "blob"
+		},
+		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureDataLakeStorage937_properties_groupId": {
+			"value": "dfs"
 		},
 		"containerUri": {
 			"value": ""

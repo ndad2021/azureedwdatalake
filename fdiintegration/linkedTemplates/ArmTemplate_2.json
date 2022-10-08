@@ -296,7 +296,10 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]",
+								"sqlReaderQuery": {
+									"value": "SELECT * FROM dbo.Ratings",
+									"type": "Expression"
+								},
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -586,7 +589,7 @@
 						"alterRow1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
-						"     insertable:false,",
+						"     insertable:true,",
 						"     updateable:false,",
 						"     upsertable:true,",
 						"     keys:['PrimaryGenre','year'],",
@@ -648,7 +651,7 @@
 								"referenceName": "integrationRuntime1",
 								"type": "IntegrationRuntimeReference"
 							},
-							"traceLevel": "Fine"
+							"traceLevel": "Coarse"
 						}
 					}
 				],

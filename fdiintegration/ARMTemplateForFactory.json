@@ -15,21 +15,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
 		},
+		"AzureStorageLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureStorageLinkedService'"
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://fdistoragedemo.dfs.core.windows.net/"
-		},
-		"AzureStorageLinkedService_properties_typeProperties_serviceEndpoint": {
-			"type": "string",
-			"defaultValue": "https://fdistoragedemo.blob.core.windows.net/"
-		},
-		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
-			"type": "string",
-			"defaultValue": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
-		},
-		"AzureDataLakeStorage937_properties_groupId": {
-			"type": "string",
-			"defaultValue": "dfs"
 		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"type": "string",
@@ -38,6 +30,14 @@
 		"AzureBlobStorage463_properties_groupId": {
 			"type": "string",
 			"defaultValue": "blob"
+		},
+		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureDataLakeStorage937_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
 		}
 	},
 	"variables": {
@@ -1315,6 +1315,61 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_movies')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Data flow1",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "Movies_trasnformation",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"MoviesADLS": {},
+									"sink1": {}
+								}
+							},
+							"staging": {
+								"linkedService": {
+									"referenceName": "AzureStorageLinkedService",
+									"type": "LinkedServiceReference"
+								},
+								"folderPath": "blob/polybase"
+							},
+							"integrationRuntime": {
+								"referenceName": "integrationRuntime1",
+								"type": "IntegrationRuntimeReference"
+							},
+							"traceLevel": "Coarse"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/Movies_trasnformation')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]",
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/GetTableListAndTriggerCopyData')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1558,7 +1613,10 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]",
+								"sqlReaderQuery": {
+									"value": "SELECT * FROM dbo.Ratings",
+									"type": "Expression"
+								},
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -1905,6 +1963,27 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalyticsTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDWLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Ratings"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDWLinkedService')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/CustomerData')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -2155,6 +2234,53 @@
 					"quoteChar": "\""
 				},
 				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Moviesdbff')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Moviesdb.csv.txt",
+						"fileSystem": "datasets"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
@@ -2941,12 +3067,7 @@
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"serviceEndpoint": "[parameters('AzureStorageLinkedService_properties_typeProperties_serviceEndpoint')]",
-					"accountKind": "StorageV2",
-					"credential": {
-						"referenceName": "credential1",
-						"type": "CredentialReference"
-					}
+					"connectionString": "[parameters('AzureStorageLinkedService_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "integrationRuntime1",
@@ -2954,7 +3075,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/credentials/credential1')]",
 				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
@@ -2989,139 +3109,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/credential1')]",
-			"type": "Microsoft.DataFactory/factories/credentials",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "ManagedIdentity",
-				"typeProperties": {
-					"resourceId": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourcegroups/fdi_demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/fdiusermanaged"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/default')]",
-			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
-			"apiVersion": "2018-06-01",
-			"properties": {},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/default/AzureDataLakeStorage937')]",
-			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"privateLinkResourceId": "[parameters('AzureDataLakeStorage937_properties_privateLinkResourceId')]",
-				"groupId": "[parameters('AzureDataLakeStorage937_properties_groupId')]"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CopyPipeline_movies')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Data flow1",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "Movies_trasnformation",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"MoviesADLS": {},
-									"sink1": {}
-								}
-							},
-							"staging": {
-								"linkedService": {
-									"referenceName": "AzureStorageLinkedService",
-									"type": "LinkedServiceReference"
-								},
-								"folderPath": "blob/polybase"
-							},
-							"integrationRuntime": {
-								"referenceName": "integrationRuntime1",
-								"type": "IntegrationRuntimeReference"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/Movies_trasnformation')]",
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Moviesdbff')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Moviesdb.csv.txt",
-						"fileSystem": "datasets"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		},
 		{
@@ -3207,7 +3194,7 @@
 						"alterRow1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
-						"     insertable:false,",
+						"     insertable:true,",
 						"     updateable:false,",
 						"     upsertable:true,",
 						"     keys:['PrimaryGenre','year'],",
@@ -3234,25 +3221,23 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalyticsTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
+			"name": "[concat(parameters('factoryName'), '/credential1')]",
+			"type": "Microsoft.DataFactory/factories/credentials",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDWLinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlDWTable",
-				"schema": [],
+				"type": "ManagedIdentity",
 				"typeProperties": {
-					"schema": "dbo",
-					"table": "Ratings"
+					"resourceId": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourcegroups/fdi_demo/providers/Microsoft.ManagedIdentity/userAssignedIdentities/fdiusermanaged"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDWLinkedService')]"
-			]
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/default')]",
+			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks",
+			"apiVersion": "2018-06-01",
+			"properties": {},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/default/AzureBlobStorage463')]",
@@ -3261,6 +3246,18 @@
 			"properties": {
 				"privateLinkResourceId": "[parameters('AzureBlobStorage463_properties_privateLinkResourceId')]",
 				"groupId": "[parameters('AzureBlobStorage463_properties_groupId')]"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/default/AzureDataLakeStorage937')]",
+			"type": "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"privateLinkResourceId": "[parameters('AzureDataLakeStorage937_properties_privateLinkResourceId')]",
+				"groupId": "[parameters('AzureDataLakeStorage937_properties_groupId')]"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/managedVirtualNetworks/default')]"
