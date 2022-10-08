@@ -88,7 +88,15 @@
 				"     allowCopyCommand: true,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          PrimaryGenre,",
+				"          year,",
+				"          AverageRatings,",
+				"          HighestRated,",
+				"          LowestRated,",
+				"          NumberOfMovies",
+				"     )) ~> sink1"
 			]
 		}
 	}

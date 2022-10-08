@@ -23,7 +23,8 @@
 						"linkedService": {
 							"referenceName": "AzureStorageLinkedService",
 							"type": "LinkedServiceReference"
-						}
+						},
+						"folderPath": "blob/polybase"
 					},
 					"integrationRuntime": {
 						"referenceName": "integrationRuntime1",
