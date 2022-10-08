@@ -15,10 +15,17 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSynapseAnalyticsTable1",
+						"referenceName": "moviesrank",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "moviesrank",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -36,9 +43,6 @@
 				},
 				{
 					"name": "AggregateRatings"
-				},
-				{
-					"name": "alterRow1"
 				}
 			],
 			"scriptLines": [
@@ -75,28 +79,21 @@
 				"          HighestRated = first(title),",
 				"          LowestRated = last(title),",
 				"          NumberOfMovies = count()) ~> AggregateRatings",
-				"AggregateRatings alterRow(upsertIf(true())) ~> alterRow1",
-				"alterRow1 sink(allowSchemaDrift: true,",
+				"AggregateRatings sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:true,",
-				"     keys:['PrimaryGenre','year'],",
-				"     format: 'table',",
-				"     staged: true,",
-				"     allowCopyCommand: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError',",
-				"     mapColumn(",
-				"          PrimaryGenre,",
-				"          year,",
-				"          AverageRatings,",
-				"          HighestRated,",
-				"          LowestRated,",
-				"          NumberOfMovies",
-				"     )) ~> sink1"
+				"     format: 'table') ~> sink1",
+				"AggregateRatings sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
 			]
 		}
 	}
