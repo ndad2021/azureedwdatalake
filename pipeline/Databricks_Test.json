@@ -13,7 +13,17 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/desainil@lab.morganstanley.com/adftutorial/mynotebook",
+					"baseParameters": {
+						"input": "@pipeline().parameters.name"
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksLS2",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
