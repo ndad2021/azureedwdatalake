@@ -718,7 +718,6 @@
 						"          title,",
 						"          genres,",
 						"          year,",
-						"          Rating,",
 						"          {Rotten Tomato} = {Rotton Tomato}",
 						"     ),",
 						"     skipDuplicateMapInputs: true,",
@@ -779,7 +778,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Data flow1",
+						"name": "Movies Rank Data flow",
 						"type": "ExecuteDataFlow",
 						"dependsOn": [],
 						"policy": {
@@ -812,7 +811,8 @@
 								"referenceName": "integrationRuntime1",
 								"type": "IntegrationRuntimeReference"
 							},
-							"traceLevel": "Coarse"
+							"traceLevel": "Coarse",
+							"runConcurrently": true
 						}
 					}
 				],
