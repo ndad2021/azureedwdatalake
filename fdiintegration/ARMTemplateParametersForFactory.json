@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "fdiintegration"
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDWLinkedService_connectionString": {
 			"value": ""
 		},
