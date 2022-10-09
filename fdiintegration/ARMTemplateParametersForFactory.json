@@ -8,6 +8,12 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksLS2_accessToken": {
+			"value": ""
+		},
 		"AzureSqlDWLinkedService_connectionString": {
 			"value": ""
 		},
@@ -22,6 +28,9 @@
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://fdistoragedemo.dfs.core.windows.net/"
+		},
+		"AzureDatabricksLS2_properties_typeProperties_existingClusterId": {
+			"value": "1009-070905-wgjzg1ln"
 		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
