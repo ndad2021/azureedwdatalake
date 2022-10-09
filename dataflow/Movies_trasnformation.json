@@ -69,7 +69,6 @@
 				"          title,",
 				"          genres,",
 				"          year,",
-				"          Rating,",
 				"          {Rotten Tomato} = {Rotton Tomato}",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
