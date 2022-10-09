@@ -18,14 +18,14 @@
 						"referenceName": "AzureSynapseAnalyticsTable1",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "Azuresynapsesink"
 				},
 				{
 					"dataset": {
 						"referenceName": "moviesrank",
 						"type": "DatasetReference"
 					},
-					"name": "sink2"
+					"name": "Flatfilesink"
 				}
 			],
 			"transformations": [
@@ -95,7 +95,7 @@
 				"     allowCopyCommand: true,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"     errorHandlingOption: 'stopOnFirstError') ~> Azuresynapsesink",
 				"AggregateRatings sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['MoviesRankTest'],",
@@ -104,7 +104,7 @@
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sink2"
+				"     partitionBy('hash', 1)) ~> Flatfilesink"
 			]
 		}
 	}
