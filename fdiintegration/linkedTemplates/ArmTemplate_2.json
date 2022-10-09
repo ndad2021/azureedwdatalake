@@ -667,7 +667,11 @@
 								"referenceName": "AzureSynapseAnalyticsTable1",
 								"type": "DatasetReference"
 							},
-							"name": "Azuresynapsesink"
+							"name": "Azuresynapsesink",
+							"rejectedDataLinkedService": {
+								"referenceName": "AzureStorageLinkedService",
+								"type": "LinkedServiceReference"
+							}
 						},
 						{
 							"dataset": {
@@ -735,7 +739,7 @@
 						"alterRow1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     deletable:false,",
-						"     insertable:true,",
+						"     insertable:false,",
 						"     updateable:false,",
 						"     upsertable:true,",
 						"     keys:['PrimaryGenre','year'],",
@@ -744,7 +748,16 @@
 						"     allowCopyCommand: true,",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
-						"     errorHandlingOption: 'stopOnFirstError') ~> Azuresynapsesink",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     outputRejectedData: true,",
+						"     mapColumn(",
+						"          PrimaryGenre,",
+						"          year,",
+						"          AverageRatings,",
+						"          HighestRated,",
+						"          LowestRated,",
+						"          NumberOfMovies",
+						"     )) ~> Azuresynapsesink",
 						"AggregateRatings sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     partitionFileNames:['MoviesRankTest'],",
