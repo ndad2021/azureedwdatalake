@@ -1,0 +1,28 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "CustomerData",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~>  CustomerData",
+					"dataset": {
+						"referenceName": "CustomerData",
+						"type": "DatasetReference"
+					}
+				},
+				{
+					"name": "ProductDatacsv",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  ProductDatacsv",
+					"dataset": {
+						"referenceName": "ProductDatacsv",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared CustomerData = let AdfDoc = Sql.Database(\"referecendata.database.windows.net\", \"referencedata\", [CreateNavigationProperties = false]), InputTable = AdfDoc{[Schema=\"dbo\",Item=\"CustomerData\"]}[Data] in InputTable;\r\nshared ProductDatacsv = let AdfDoc = AzureStorage.DataLakeContents(\"https://fdistoragedemo.dfs.core.windows.net/datasets/ProductData.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]) in Csv;\r\nshared UserQuery = let Source = #\"CustomerData\",\r\n  #\"Removed top rows\" = Table.Skip(Source, 1),\r\n  #\"Counted rows\" = Table.RowCount(#\"Removed top rows\") in #\"Counted rows\";\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
