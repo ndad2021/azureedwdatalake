@@ -1642,7 +1642,11 @@
 								"referenceName": "moviesrank",
 								"type": "DatasetReference"
 							},
-							"name": "Flatfilesink"
+							"name": "Flatfilesink",
+							"rejectedDataLinkedService": {
+								"referenceName": "AzureDataLakeStorage1",
+								"type": "LinkedServiceReference"
+							}
 						}
 					],
 					"transformations": [

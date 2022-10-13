@@ -3327,7 +3327,11 @@
 								"referenceName": "moviesrank",
 								"type": "DatasetReference"
 							},
-							"name": "Flatfilesink"
+							"name": "Flatfilesink",
+							"rejectedDataLinkedService": {
+								"referenceName": "AzureDataLakeStorage1",
+								"type": "LinkedServiceReference"
+							}
 						}
 					],
 					"transformations": [
@@ -3422,7 +3426,8 @@
 				"[concat(variables('factoryId'), '/datasets/Moviesdbff')]",
 				"[concat(variables('factoryId'), '/datasets/AzureSynapseAnalyticsTable2')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]",
-				"[concat(variables('factoryId'), '/datasets/moviesrank')]"
+				"[concat(variables('factoryId'), '/datasets/moviesrank')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
 			]
 		},
 		{
