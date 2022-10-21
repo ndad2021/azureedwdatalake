@@ -24,7 +24,7 @@
 							"referenceName": "AzureBlobStorage1",
 							"type": "LinkedServiceReference"
 						},
-						"folderPath": ""
+						"folderPath": "synapseblob"
 					},
 					"integrationRuntime": {
 						"referenceName": "integrationRuntime1",
