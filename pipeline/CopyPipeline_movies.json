@@ -21,10 +21,10 @@
 					},
 					"staging": {
 						"linkedService": {
-							"referenceName": "AzureStorageLinkedService",
+							"referenceName": "AzureBlobStorage1",
 							"type": "LinkedServiceReference"
 						},
-						"folderPath": "blob"
+						"folderPath": ""
 					},
 					"integrationRuntime": {
 						"referenceName": "integrationRuntime1",
