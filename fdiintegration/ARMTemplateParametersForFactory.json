@@ -32,6 +32,9 @@
 		"AzureDatabricksLS2_properties_typeProperties_existingClusterId": {
 			"value": "1009-070905-wgjzg1ln"
 		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://fdikv.vault.azure.net/"
+		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
 		},
@@ -43,6 +46,9 @@
 		},
 		"AzureDataLakeStorage937_properties_groupId": {
 			"value": "dfs"
+		},
+		"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+			"value": "https://fdistoragedemo.blob.core.windows.net/"
 		}
 	}
 }

@@ -43,6 +43,10 @@
 			"type": "string",
 			"defaultValue": "1009-070905-wgjzg1ln"
 		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://fdikv.vault.azure.net/"
+		},
 		"AzureBlobStorage463_properties_privateLinkResourceId": {
 			"type": "string",
 			"defaultValue": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
@@ -58,6 +62,10 @@
 		"AzureDataLakeStorage937_properties_groupId": {
 			"type": "string",
 			"defaultValue": "dfs"
+		},
+		"AzureBlobStorage1_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://fdistoragedemo.blob.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -1365,10 +1373,10 @@
 							},
 							"staging": {
 								"linkedService": {
-									"referenceName": "AzureStorageLinkedService",
+									"referenceName": "AzureBlobStorage1",
 									"type": "LinkedServiceReference"
 								},
-								"folderPath": "blob"
+								"folderPath": "synapseblob"
 							},
 							"integrationRuntime": {
 								"referenceName": "integrationRuntime1",
@@ -1387,7 +1395,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/Movies_trasnformation')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]",
 				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		},
@@ -3198,6 +3206,19 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlDWLinkedService')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -3252,6 +3273,25 @@
 				"type": "AzureSqlDW",
 				"typeProperties": {
 					"connectionString": "[parameters('AzureSynapseAnalytics1_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "integrationRuntime1",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics_new')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSynapseAnalytics_new_connectionString')]"
 				},
 				"connectVia": {
 					"referenceName": "integrationRuntime1",
@@ -3509,14 +3549,19 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSynapseAnalytics_new')]",
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureSqlDW",
+				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('AzureSynapseAnalytics_new_connectionString')]"
+					"serviceEndpoint": "[parameters('AzureBlobStorage1_properties_typeProperties_serviceEndpoint')]",
+					"accountKind": "StorageV2",
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
 				},
 				"connectVia": {
 					"referenceName": "integrationRuntime1",
@@ -3524,6 +3569,7 @@
 				}
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/credentials/credential1')]",
 				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
 			]
 		}
