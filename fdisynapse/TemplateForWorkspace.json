@@ -81,7 +81,11 @@
 							"sink": {
 								"type": "SqlDWSink",
 								"allowCopyCommand": true,
-								"copyCommandSettings": {}
+								"copyCommandSettings": {
+									"additionalOptions": {
+										"MAXERRORS": "500"
+									}
+								}
 							},
 							"enableStaging": true,
 							"stagingSettings": {
@@ -92,7 +96,7 @@
 								"path": "synapseblob"
 							},
 							"parallelCopies": 1,
-							"enableSkipIncompatibleRow": false,
+							"enableSkipIncompatibleRow": true,
 							"logSettings": {
 								"enableCopyActivityLog": true,
 								"copyActivityLogSettings": {
