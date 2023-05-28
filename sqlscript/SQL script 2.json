@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "create table CustomerData\n(\nCustomerKey\tinteger,\nCustomerId\tvarchar(100),\nCustomer\tvarchar(100),\nCCity\tvarchar(100),\nCStateProvince\tvarchar(100),\nCountryRegion\tvarchar(100),\nCPostalCode\tvarchar(100)\n);\n\n\nselect * from dbo.CustomerData",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "fdisynapsededicatedpool",
+				"poolName": "fdisynapsededicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

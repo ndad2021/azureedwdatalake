@@ -1,0 +1,160 @@
+{
+	"name": "CopyPipeline_eit",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_eit",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "datasets//CustomerData.csv"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.CustomerData"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": false,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 1
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowCopyCommand": true
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "fdisynapse-WorkspaceDefaultStorage",
+							"type": "LinkedServiceReference"
+						},
+						"path": "synapseblob"
+					},
+					"parallelCopies": 1,
+					"enableSkipIncompatibleRow": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "AzureDataLakeStoragelinkedservice",
+								"type": "LinkedServiceReference"
+							}
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CustomerKey",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CustomerKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerId",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CustomerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Customer",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CCity",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CCity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CStateProvince",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CStateProvince",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CountryRegion",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CountryRegion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CPostalCode",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CPostalCode",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_eit",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_eit",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-05-28T09:30:54Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

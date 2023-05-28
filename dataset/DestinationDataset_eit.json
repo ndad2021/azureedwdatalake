@@ -1,0 +1,47 @@
+{
+	"name": "DestinationDataset_eit",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSynapseAnalytics1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "CustomerKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CustomerId",
+				"type": "varchar"
+			},
+			{
+				"name": "Customer",
+				"type": "varchar"
+			},
+			{
+				"name": "CCity",
+				"type": "varchar"
+			},
+			{
+				"name": "CStateProvince",
+				"type": "varchar"
+			},
+			{
+				"name": "CountryRegion",
+				"type": "varchar"
+			},
+			{
+				"name": "CPostalCode",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CustomerData"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

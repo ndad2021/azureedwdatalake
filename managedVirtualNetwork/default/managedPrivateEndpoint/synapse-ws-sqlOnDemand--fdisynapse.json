@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sqlOnDemand--fdisynapse",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Synapse/workspaces/fdisynapse",
+		"groupId": "sqlOnDemand",
+		"fqdns": [
+			"fdisynapse-ondemand.fc74c087-19ac-4c7e-b503-a8141a5dae08.sql.azuresynapse.net"
+		]
+	}
+}

@@ -1,11 +1,11 @@
 {
-	"name": "AzureSynapseAnalytics1",
+	"name": "AzureDataLakeStoragelinkedservice",
 	"type": "Microsoft.Synapse/workspaces/linkedservices",
 	"properties": {
 		"annotations": [],
-		"type": "AzureSqlDW",
+		"type": "AzureBlobFS",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=fdisynapse.sql.azuresynapse.net;Initial Catalog=fdisynapsededicatedpool",
+			"url": "https://fdistoragedemo.dfs.core.windows.net/",
 			"credential": {
 				"referenceName": "Credential2",
 				"type": "CredentialReference"
