@@ -38,7 +38,12 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"allowCopyCommand": true
+						"allowCopyCommand": true,
+						"copyCommandSettings": {
+							"additionalOptions": {
+								"MAXERRORS": "500"
+							}
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
