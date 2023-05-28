@@ -1,0 +1,19 @@
+{
+	"name": "AzureDataLakeStoragelinkedservice",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://fdistoragedemo.dfs.core.windows.net/",
+			"credential": {
+				"referenceName": "Credential2",
+				"type": "CredentialReference"
+			}
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

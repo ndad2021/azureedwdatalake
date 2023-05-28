@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "CREATE USER fdiusermanaged FROM EXTERNAL PROVIDER\n\nEXEC sp_addrolemember db_owner, fdiusermanaged;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "fdisynapsededicatedpool",
+				"poolName": "fdisynapsededicatedpool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
