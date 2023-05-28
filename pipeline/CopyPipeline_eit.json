@@ -49,7 +49,7 @@
 						"path": "synapseblob"
 					},
 					"parallelCopies": 1,
-					"enableSkipIncompatibleRow": false,
+					"enableSkipIncompatibleRow": true,
 					"logSettings": {
 						"enableCopyActivityLog": true,
 						"copyActivityLogSettings": {
