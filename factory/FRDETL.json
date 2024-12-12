@@ -1,0 +1,9 @@
+{
+	"name": "FRDETL",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1ca26aa9-0228-4922-99fc-67b3c14cdfc1",
+		"tenantId": "8d09f28d-2b54-4761-98f1-de38762cd939"
+	}
+}
