@@ -4,14 +4,10 @@
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://fdistoragedemo.dfs.core.windows.net/",
-			"credential": {
-				"referenceName": "credential1",
-				"type": "CredentialReference"
-			}
+			"url": "https://fdistoragedemo.dfs.core.windows.net/"
 		},
 		"connectVia": {
-			"referenceName": "integrationRuntime1",
+			"referenceName": "integrationRuntime2",
 			"type": "IntegrationRuntimeReference"
 		}
 	},
