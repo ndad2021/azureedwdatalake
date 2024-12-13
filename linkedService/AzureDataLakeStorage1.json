@@ -1,15 +1,15 @@
 {
 	"name": "AzureDataLakeStorage1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://fdistoragedemo.dfs.core.windows.net/"
+			"sasUri": "https://fdistoragedemo.blob.core.windows.net/customer?sp=racwdli&st=2024-12-13T12:53:36Z&se=2025-06-30T20:53:36Z&spr=https&sv=2022-11-02&sr=c&sig=1uc19%2FudiTgjTGVsKWKk1lDI0MMXsMcuIpHgblq8YzA%3D?https://fdistoragedemo.blob.core.windows.net/customer?sp=racwdli&st=2024-12-13T12:53:36Z&se=2025-06-30T20:53:36Z&spr=https&sv=2022-11-02&sr=c&sig=1uc19%2FudiTgjTGVsKWKk1lDI0MMXsMcuIpHgblq8YzA%3D"
 		},
 		"connectVia": {
 			"referenceName": "integrationRuntime2",
 			"type": "IntegrationRuntimeReference"
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
