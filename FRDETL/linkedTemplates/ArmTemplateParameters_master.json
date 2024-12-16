@@ -1,0 +1,122 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "FRDETL"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStoragelinkedservice_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksLS2_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDWLinkedService_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureStorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=fdisynapse.sql.azuresynapse.net;Initial Catalog=fdisynapsededicatedpool;User ID="
+		},
+		"AzureSynapseAnalytics_new_connectionString": {
+			"value": ""
+		},
+		"fdisynapse-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:fdisynapse.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureBlobStorage1_linkservice_properties_typeProperties_serviceEndpoint": {
+			"value": "https://fdistoragedemo.blob.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_sasUri": {
+			"value": ""
+		},
+		"AzureDataLakeStoragelinkedservice_properties_typeProperties_url": {
+			"value": "https://fdistoragedemo.dfs.core.windows.net/"
+		},
+		"AzureDatabricksLS2_properties_typeProperties_existingClusterId": {
+			"value": "1009-070905-wgjzg1ln"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://fdikv.vault.azure.net/"
+		},
+		"fdisynapse-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://fdistoragedemo.dfs.core.windows.net"
+		},
+		"systemassignedlinkedService1_properties_typeProperties_url": {
+			"value": "https://fdistoragedemo.dfs.core.windows.net/"
+		},
+		"AzureBlobStorage230_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureBlobStorage230_properties_groupId": {
+			"value": "blob"
+		},
+		"AzureBlobStorage230_properties_fqdns": {
+			"value": [
+				"fdistoragedemo.blob.core.windows.net"
+			]
+		},
+		"AzureBlobStorage463_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureBlobStorage463_properties_groupId": {
+			"value": "blob"
+		},
+		"AzureDataLakeStorage937_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"AzureDataLakeStorage937_properties_groupId": {
+			"value": "dfs"
+		},
+		"synapse-ws-custstgacct--fdisynapse-fdistoragedemo_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Storage/storageAccounts/fdistoragedemo"
+		},
+		"synapse-ws-custstgacct--fdisynapse-fdistoragedemo_properties_groupId": {
+			"value": "dfs"
+		},
+		"synapse-ws-custstgacct--fdisynapse-fdistoragedemo_properties_fqdns": {
+			"value": [
+				"fdistoragedemo.dfs.core.windows.net"
+			]
+		},
+		"synapse-ws-sql--fdisynapse_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Synapse/workspaces/fdisynapse"
+		},
+		"synapse-ws-sql--fdisynapse_properties_groupId": {
+			"value": "sql"
+		},
+		"synapse-ws-sql--fdisynapse_properties_fqdns": {
+			"value": [
+				"fdisynapse.fc74c087-19ac-4c7e-b503-a8141a5dae08.sql.azuresynapse.net"
+			]
+		},
+		"synapse-ws-sqlOnDemand--fdisynapse_properties_privateLinkResourceId": {
+			"value": "/subscriptions/83e3d1a5-10c3-4a38-984e-2b9c0b3d9130/resourceGroups/fdi_demo/providers/Microsoft.Synapse/workspaces/fdisynapse"
+		},
+		"synapse-ws-sqlOnDemand--fdisynapse_properties_groupId": {
+			"value": "sqlOnDemand"
+		},
+		"synapse-ws-sqlOnDemand--fdisynapse_properties_fqdns": {
+			"value": [
+				"fdisynapse-ondemand.fc74c087-19ac-4c7e-b503-a8141a5dae08.sql.azuresynapse.net"
+			]
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
