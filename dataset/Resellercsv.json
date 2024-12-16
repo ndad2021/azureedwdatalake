@@ -20,35 +20,35 @@
 		},
 		"schema": [
 			{
-				"name": "[Not Applicable]0",
+				"name": "PostalCode\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]1",
+				"name": "CountryRegion\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]2",
+				"name": "StateProvince\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]3",
+				"name": "City\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]4",
+				"name": "Reseller\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]5",
+				"name": "BusinessType\t",
 				"type": "String"
 			},
 			{
-				"name": "[Not Applicable]6",
+				"name": "ResellerId\t",
 				"type": "String"
 			},
 			{
-				"name": "-1",
+				"name": "ResellerKey\t",
 				"type": "String"
 			}
 		]
