@@ -20,7 +20,7 @@
 					},
 					"name": "Azuresynapsesink",
 					"rejectedDataLinkedService": {
-						"referenceName": "AzureStorageLinkedService",
+						"referenceName": "AzureBlobStorage1",
 						"type": "LinkedServiceReference"
 					}
 				},
