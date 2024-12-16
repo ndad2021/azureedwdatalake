@@ -42,21 +42,7 @@
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
-					"validateDataConsistency": true,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Warning",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "AzureStorageLinkedService",
-								"type": "LinkedServiceReference"
-							},
-							"path": "fdidir"
-						}
-					},
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
