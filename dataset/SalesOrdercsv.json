@@ -2,41 +2,37 @@
 	"name": "SalesOrdercsv",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileName": "SalesOrder.csv"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SalesOrder.csv",
+				"container": "customer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
+				"name": "SalesOrderLine",
 				"type": "String"
 			},
 			{
+				"name": "SalesOrder",
 				"type": "String"
 			},
 			{
+				"name": "SalesOrderLineKey",
 				"type": "String"
 			},
 			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
+				"name": "Channel",
 				"type": "String"
 			}
 		]
