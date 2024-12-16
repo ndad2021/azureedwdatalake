@@ -1318,7 +1318,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Channel",
+											"name": "Channels",
 											"type": "String",
 											"physicalType": "varchar"
 										}

@@ -870,8 +870,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Resellercsv')]",
-				"[concat(variables('factoryId'), '/datasets/Reseller')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
+				"[concat(variables('factoryId'), '/datasets/Reseller')]"
 			]
 		},
 		{
@@ -1124,8 +1123,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Salescsv')]",
-				"[concat(variables('factoryId'), '/datasets/Sales')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
+				"[concat(variables('factoryId'), '/datasets/Sales')]"
 			]
 		},
 		{
@@ -1219,7 +1217,7 @@
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "Channel",
+											"name": "Channels",
 											"type": "String",
 											"physicalType": "varchar"
 										}
@@ -1256,8 +1254,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SalesOrdercsv')]",
-				"[concat(variables('factoryId'), '/datasets/SalesOrder')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
+				"[concat(variables('factoryId'), '/datasets/SalesOrder')]"
 			]
 		},
 		{
@@ -1341,8 +1338,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SalesTerritorycsv')]",
-				"[concat(variables('factoryId'), '/datasets/SalesTerritory')]",
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
+				"[concat(variables('factoryId'), '/datasets/SalesTerritory')]"
 			]
 		},
 		{
