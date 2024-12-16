@@ -2,42 +2,49 @@
 	"name": "Datecsv",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
+				"type": "AzureBlobStorageLocation",
 				"fileName": "Date.csv",
-				"fileSystem": "datasets"
+				"container": "customer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
+				"name": "DateKey\t",
 				"type": "String"
 			},
 			{
+				"name": " Date",
 				"type": "String"
 			},
 			{
+				"name": " FiscalYear",
 				"type": "String"
 			},
 			{
+				"name": " FiscalQuater",
 				"type": "String"
 			},
 			{
+				"name": " Month",
 				"type": "String"
 			},
 			{
+				"name": " FullDate",
 				"type": "String"
 			},
 			{
+				"name": " Monthkey",
 				"type": "String"
 			}
 		]
