@@ -48,8 +48,9 @@
 						"mappings": [
 							{
 								"source": {
+									"name": "Category",
 									"type": "String",
-									"ordinal": 1
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Category",
@@ -59,8 +60,9 @@
 							},
 							{
 								"source": {
+									"name": "Subcategory",
 									"type": "String",
-									"ordinal": 2
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Subcategory",
@@ -70,8 +72,9 @@
 							},
 							{
 								"source": {
+									"name": "Model",
 									"type": "String",
-									"ordinal": 3
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Model",
@@ -81,19 +84,23 @@
 							},
 							{
 								"source": {
+									"name": "ListPrice",
 									"type": "String",
-									"ordinal": 4
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ListPrice",
 									"type": "Decimal",
-									"physicalType": "decimal"
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
 								}
 							},
 							{
 								"source": {
+									"name": "Color",
 									"type": "String",
-									"ordinal": 5
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Color",
@@ -103,19 +110,23 @@
 							},
 							{
 								"source": {
+									"name": "StandardCost",
 									"type": "String",
-									"ordinal": 6
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "StandardCost",
 									"type": "Decimal",
-									"physicalType": "decimal"
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 10
 								}
 							},
 							{
 								"source": {
+									"name": "Product",
 									"type": "String",
-									"ordinal": 7
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Product",
@@ -125,8 +136,9 @@
 							},
 							{
 								"source": {
+									"name": "SKU",
 									"type": "String",
-									"ordinal": 8
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SKU",
@@ -136,8 +148,9 @@
 							},
 							{
 								"source": {
+									"name": "ProductKey",
 									"type": "String",
-									"ordinal": 9
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ProductKey",
