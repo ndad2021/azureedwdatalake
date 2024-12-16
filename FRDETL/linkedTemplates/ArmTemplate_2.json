@@ -469,8 +469,8 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": false,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -489,8 +489,9 @@
 								"mappings": [
 									{
 										"source": {
+											"name": "DateKey\t",
 											"type": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "DateKey",
@@ -500,8 +501,9 @@
 									},
 									{
 										"source": {
+											"name": " Date",
 											"type": "String",
-											"ordinal": 2
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Date",
@@ -511,8 +513,9 @@
 									},
 									{
 										"source": {
+											"name": " FiscalYear",
 											"type": "String",
-											"ordinal": 3
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "FiscalYear",
@@ -522,8 +525,9 @@
 									},
 									{
 										"source": {
+											"name": " FiscalQuater",
 											"type": "String",
-											"ordinal": 4
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "FiscalQuarter",
@@ -533,8 +537,9 @@
 									},
 									{
 										"source": {
+											"name": " Month",
 											"type": "String",
-											"ordinal": 5
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Month",
@@ -544,8 +549,9 @@
 									},
 									{
 										"source": {
+											"name": " FullDate",
 											"type": "String",
-											"ordinal": 6
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "FullDate",
@@ -555,8 +561,9 @@
 									},
 									{
 										"source": {
+											"name": " Monthkey",
 											"type": "String",
-											"ordinal": 7
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "MonthKey",
@@ -648,8 +655,9 @@
 								"mappings": [
 									{
 										"source": {
+											"name": "Category",
 											"type": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Category",
@@ -659,8 +667,9 @@
 									},
 									{
 										"source": {
+											"name": "Subcategory",
 											"type": "String",
-											"ordinal": 2
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Subcategory",
@@ -670,8 +679,9 @@
 									},
 									{
 										"source": {
+											"name": "Model",
 											"type": "String",
-											"ordinal": 3
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Model",
@@ -681,19 +691,23 @@
 									},
 									{
 										"source": {
+											"name": "ListPrice",
 											"type": "String",
-											"ordinal": 4
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ListPrice",
 											"type": "Decimal",
-											"physicalType": "decimal"
+											"physicalType": "decimal",
+											"scale": 2,
+											"precision": 10
 										}
 									},
 									{
 										"source": {
+											"name": "Color",
 											"type": "String",
-											"ordinal": 5
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Color",
@@ -703,19 +717,23 @@
 									},
 									{
 										"source": {
+											"name": "StandardCost",
 											"type": "String",
-											"ordinal": 6
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "StandardCost",
 											"type": "Decimal",
-											"physicalType": "decimal"
+											"physicalType": "decimal",
+											"scale": 2,
+											"precision": 10
 										}
 									},
 									{
 										"source": {
+											"name": "Product",
 											"type": "String",
-											"ordinal": 7
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Product",
@@ -725,8 +743,9 @@
 									},
 									{
 										"source": {
+											"name": "SKU",
 											"type": "String",
-											"ordinal": 8
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SKU",
@@ -736,8 +755,9 @@
 									},
 									{
 										"source": {
+											"name": "ProductKey",
 											"type": "String",
-											"ordinal": 9
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ProductKey",
@@ -808,13 +828,12 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": false,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 1
+									"type": "DelimitedTextReadSettings"
 								}
 							},
 							"sink": {
@@ -826,27 +845,13 @@
 							},
 							"enableStaging": false,
 							"enableSkipIncompatibleRow": true,
-							"validateDataConsistency": true,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Warning",
-									"enableReliableLogging": false
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "AzureStorageLinkedService",
-										"type": "LinkedServiceReference"
-									},
-									"path": "fdidir"
-								}
-							},
+							"validateDataConsistency": false,
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
 									{
 										"source": {
-											"name": "98104",
+											"name": "PostalCode",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -858,7 +863,7 @@
 									},
 									{
 										"source": {
-											"name": "United States",
+											"name": "CountryRegion",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -870,7 +875,7 @@
 									},
 									{
 										"source": {
-											"name": "Washington",
+											"name": "StateProvince",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -882,7 +887,7 @@
 									},
 									{
 										"source": {
-											"name": "Seattle",
+											"name": "City",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -894,7 +899,7 @@
 									},
 									{
 										"source": {
-											"name": "A Bike Store",
+											"name": "Reseller",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -906,7 +911,7 @@
 									},
 									{
 										"source": {
-											"name": "Value Added Reseller",
+											"name": "BusinessType",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -918,7 +923,7 @@
 									},
 									{
 										"source": {
-											"name": "AW00000001",
+											"name": "ResellerId",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -930,7 +935,7 @@
 									},
 									{
 										"source": {
-											"name": "1",
+											"name": "ResellerKey",
 											"type": "String",
 											"physicalType": "String"
 										},
@@ -1003,7 +1008,7 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": false,
 									"enablePartitionDiscovery": false
 								},
@@ -1018,28 +1023,15 @@
 							},
 							"enableStaging": false,
 							"enableSkipIncompatibleRow": true,
-							"validateDataConsistency": true,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Warning",
-									"enableReliableLogging": false
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "AzureStorageLinkedService",
-										"type": "LinkedServiceReference"
-									},
-									"path": "fdidir"
-								}
-							},
+							"validateDataConsistency": false,
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
 									{
 										"source": {
+											"name": "SalesAmount",
 											"type": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesAmount",
@@ -1049,8 +1041,9 @@
 									},
 									{
 										"source": {
+											"name": "TotalProductCost",
 											"type": "String",
-											"ordinal": 2
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "TotalProductCost",
@@ -1060,8 +1053,9 @@
 									},
 									{
 										"source": {
+											"name": "ProductStandardCost",
 											"type": "String",
-											"ordinal": 3
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ProductStandardCost",
@@ -1071,8 +1065,9 @@
 									},
 									{
 										"source": {
+											"name": "UnitPriceDiscountPct",
 											"type": "String",
-											"ordinal": 4
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "UnitPriceDiscountPct",
@@ -1082,8 +1077,9 @@
 									},
 									{
 										"source": {
+											"name": "ExtendedAmount",
 											"type": "String",
-											"ordinal": 5
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ExtendedAmount",
@@ -1093,8 +1089,9 @@
 									},
 									{
 										"source": {
+											"name": "UnitPrice",
 											"type": "String",
-											"ordinal": 6
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "UnitPrice",
@@ -1104,8 +1101,9 @@
 									},
 									{
 										"source": {
+											"name": "OrderQuantity",
 											"type": "String",
-											"ordinal": 7
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "OrderQuantity",
@@ -1115,8 +1113,9 @@
 									},
 									{
 										"source": {
+											"name": "SalesTerritoryKey",
 											"type": "String",
-											"ordinal": 8
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesTerritoryKey",
@@ -1126,8 +1125,9 @@
 									},
 									{
 										"source": {
+											"name": "ShipDateKey",
 											"type": "String",
-											"ordinal": 9
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ShipDateKey",
@@ -1137,8 +1137,9 @@
 									},
 									{
 										"source": {
+											"name": "DueDateKey",
 											"type": "String",
-											"ordinal": 10
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "DueDateKey",
@@ -1148,8 +1149,9 @@
 									},
 									{
 										"source": {
+											"name": "OrderDateKey",
 											"type": "String",
-											"ordinal": 11
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "OrderDateKey",
@@ -1159,8 +1161,9 @@
 									},
 									{
 										"source": {
+											"name": "CustomerKey",
 											"type": "String",
-											"ordinal": 12
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "CustomerKey",
@@ -1170,8 +1173,9 @@
 									},
 									{
 										"source": {
+											"name": "ResellerKey",
 											"type": "String",
-											"ordinal": 13
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "ResellerKey",
@@ -1181,8 +1185,9 @@
 									},
 									{
 										"source": {
+											"name": "SalesOrderLineKey",
 											"type": "String",
-											"ordinal": 14
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesOrderLineKey",
@@ -1253,13 +1258,12 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": false,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 1
+									"type": "DelimitedTextReadSettings"
 								}
 							},
 							"sink": {
@@ -1267,27 +1271,15 @@
 								"preCopyScript": "truncate table dbo.SalesOrder"
 							},
 							"enableStaging": false,
-							"validateDataConsistency": true,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Warning",
-									"enableReliableLogging": false
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "AzureStorageLinkedService",
-										"type": "LinkedServiceReference"
-									}
-								}
-							},
+							"validateDataConsistency": false,
 							"translator": {
 								"type": "TabularTranslator",
 								"mappings": [
 									{
 										"source": {
+											"name": "SalesOrderLine",
 											"type": "String",
-											"ordinal": 1
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesOrderLine",
@@ -1297,8 +1289,9 @@
 									},
 									{
 										"source": {
+											"name": "SalesOrder",
 											"type": "String",
-											"ordinal": 2
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesOrder",
@@ -1308,8 +1301,9 @@
 									},
 									{
 										"source": {
+											"name": "SalesOrderLineKey",
 											"type": "String",
-											"ordinal": 3
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "SalesOrderLineKey",
@@ -1319,8 +1313,9 @@
 									},
 									{
 										"source": {
+											"name": "Channel",
 											"type": "String",
-											"ordinal": 4
+											"physicalType": "String"
 										},
 										"sink": {
 											"name": "Channel",
@@ -1391,7 +1386,7 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": false,
 									"enablePartitionDiscovery": false
 								},
@@ -1408,67 +1403,8 @@
 							},
 							"enableStaging": false,
 							"validateDataConsistency": true,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Warning",
-									"enableReliableLogging": false
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "AzureStorageLinkedService",
-										"type": "LinkedServiceReference"
-									}
-								}
-							},
 							"translator": {
 								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"type": "String",
-											"ordinal": 1
-										},
-										"sink": {
-											"name": "SalesTerritoryKey",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"type": "String",
-											"ordinal": 2
-										},
-										"sink": {
-											"name": "Region",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"type": "String",
-											"ordinal": 3
-										},
-										"sink": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									},
-									{
-										"source": {
-											"type": "String",
-											"ordinal": 4
-										},
-										"sink": {
-											"name": "Group1",
-											"type": "String",
-											"physicalType": "varchar"
-										}
-									}
-								],
 								"typeConversion": true,
 								"typeConversionSettings": {
 									"allowDataTruncation": true,

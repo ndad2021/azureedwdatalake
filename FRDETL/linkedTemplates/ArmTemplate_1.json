@@ -315,42 +315,49 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
+						"type": "AzureBlobStorageLocation",
 						"fileName": "Date.csv",
-						"fileSystem": "datasets"
+						"container": "customer"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
+						"name": "DateKey\t",
 						"type": "String"
 					},
 					{
+						"name": " Date",
 						"type": "String"
 					},
 					{
+						"name": " FiscalYear",
 						"type": "String"
 					},
 					{
+						"name": " FiscalQuater",
 						"type": "String"
 					},
 					{
+						"name": " Month",
 						"type": "String"
 					},
 					{
+						"name": " FullDate",
 						"type": "String"
 					},
 					{
+						"name": " Monthkey",
 						"type": "String"
 					}
 				]
@@ -521,35 +528,44 @@
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
+						"name": "Category\t",
 						"type": "String"
 					},
 					{
+						"name": " Subcategory\t",
 						"type": "String"
 					},
 					{
+						"name": "Model\t",
 						"type": "String"
 					},
 					{
+						"name": "ListPrice\t",
 						"type": "String"
 					},
 					{
+						"name": "Color\t",
 						"type": "String"
 					},
 					{
+						"name": "StandardCost\t",
 						"type": "String"
 					},
 					{
+						"name": "Product\t",
 						"type": "String"
 					},
 					{
+						"name": " SKU",
 						"type": "String"
 					},
 					{
+						"name": "ProductKey",
 						"type": "String"
 					}
 				]
@@ -630,16 +646,16 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
+						"type": "AzureBlobStorageLocation",
 						"fileName": "Reseller.csv",
-						"fileSystem": "datasets"
+						"container": "customer"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -648,35 +664,35 @@
 				},
 				"schema": [
 					{
-						"name": "[Not Applicable]0",
+						"name": "PostalCode\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]1",
+						"name": "CountryRegion\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]2",
+						"name": "StateProvince\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]3",
+						"name": "City\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]4",
+						"name": "Reseller\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]5",
+						"name": "BusinessType\t",
 						"type": "String"
 					},
 					{
-						"name": "[Not Applicable]6",
+						"name": "ResellerId\t",
 						"type": "String"
 					},
 					{
-						"name": "-1",
+						"name": "ResellerKey\t",
 						"type": "String"
 					}
 				]
@@ -837,41 +853,37 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "SalesOrder.csv"
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SalesOrder.csv",
+						"container": "customer"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
+						"name": "SalesOrderLine",
 						"type": "String"
 					},
 					{
+						"name": "SalesOrder",
 						"type": "String"
 					},
 					{
+						"name": "SalesOrderLineKey",
 						"type": "String"
 					},
 					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
-						"type": "String"
-					},
-					{
+						"name": "Channel",
 						"type": "String"
 					}
 				]
@@ -903,32 +915,37 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "SalesTerritory.csv"
+						"type": "AzureBlobStorageLocation",
+						"fileName": "SalesTerritory.csv",
+						"container": "customer"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
+						"name": "SalesTerritoryKey",
 						"type": "String"
 					},
 					{
+						"name": "Region",
 						"type": "String"
 					},
 					{
+						"name": "Country",
 						"type": "String"
 					},
 					{
+						"name": "Group",
 						"type": "String"
 					}
 				]
@@ -941,65 +958,77 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Sales.csv"
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Sales.csv",
+						"container": "customer"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
-					"firstRowAsHeader": false,
+					"firstRowAsHeader": true,
 					"quoteChar": "\""
 				},
 				"schema": [
 					{
+						"name": "SalesAmount",
 						"type": "String"
 					},
 					{
+						"name": "TotalProductCost",
 						"type": "String"
 					},
 					{
+						"name": " ProductStandardCost",
 						"type": "String"
 					},
 					{
+						"name": "UnitPriceDiscountPct",
 						"type": "String"
 					},
 					{
+						"name": "ExtendedAmount",
 						"type": "String"
 					},
 					{
+						"name": "UnitPrice",
 						"type": "String"
 					},
 					{
+						"name": "OrderQuantity",
 						"type": "String"
 					},
 					{
+						"name": "SalesTerritoryKey",
 						"type": "String"
 					},
 					{
+						"name": "ShipDateKey\t",
 						"type": "String"
 					},
 					{
+						"name": "DueDateKey\t",
 						"type": "String"
 					},
 					{
+						"name": "OrderDateKey\t",
 						"type": "String"
 					},
 					{
+						"name": "CustomerKey\t",
 						"type": "String"
 					},
 					{
+						"name": "ResellerKey\t",
 						"type": "String"
 					},
 					{
-						"type": "String"
-					},
-					{
+						"name": " SalesOrderLineKey\t",
 						"type": "String"
 					}
 				]
