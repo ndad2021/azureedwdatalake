@@ -50,8 +50,9 @@
 						"mappings": [
 							{
 								"source": {
+									"name": "-1",
 									"type": "String",
-									"ordinal": 1
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CustomerKey",
@@ -61,8 +62,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]1",
 									"type": "String",
-									"ordinal": 2
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CustomerId",
@@ -72,8 +74,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]2",
 									"type": "String",
-									"ordinal": 3
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "Customer",
@@ -83,8 +86,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]3",
 									"type": "String",
-									"ordinal": 4
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CCity",
@@ -94,8 +98,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]4",
 									"type": "String",
-									"ordinal": 5
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CStateProvince",
@@ -105,8 +110,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]5",
 									"type": "String",
-									"ordinal": 6
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CountryRegion",
@@ -116,8 +122,9 @@
 							},
 							{
 								"source": {
+									"name": "[Not Applicable]6",
 									"type": "String",
-									"ordinal": 7
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CPostalCode",
