@@ -50,7 +50,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "-1",
+									"name": "CustomerKey",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -62,7 +62,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]1",
+									"name": "CustomerId",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -74,7 +74,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]2",
+									"name": "Customer",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -86,7 +86,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]3",
+									"name": "CCity",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -98,7 +98,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]4",
+									"name": "CStateProvince",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -110,7 +110,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]5",
+									"name": "CountryRegion",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -122,7 +122,7 @@
 							},
 							{
 								"source": {
-									"name": "[Not Applicable]6",
+									"name": "CPostalCode",
 									"type": "String",
 									"physicalType": "String"
 								},
