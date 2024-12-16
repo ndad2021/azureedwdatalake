@@ -27,11 +27,14 @@
 						"folderPath": "synapseblob"
 					},
 					"integrationRuntime": {
-						"referenceName": "integrationRuntime1",
+						"referenceName": "integrationRuntime2",
 						"type": "IntegrationRuntimeReference"
 					},
-					"traceLevel": "Fine",
-					"runConcurrently": true
+					"traceLevel": "None",
+					"runConcurrently": false,
+					"cacheSinks": {
+						"firstRowOnly": true
+					}
 				}
 			}
 		],

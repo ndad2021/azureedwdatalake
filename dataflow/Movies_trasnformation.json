@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSynapseAnalyticsTable2",
+						"referenceName": "AzureSqlDatabaseDataset",
 						"type": "DatasetReference"
 					},
 					"name": "Azuresynapsesink",
@@ -98,8 +98,6 @@
 				"     upsertable:true,",
 				"     keys:['PrimaryGenre','year'],",
 				"     format: 'table',",
-				"     staged: true,",
-				"     allowCopyCommand: true,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
