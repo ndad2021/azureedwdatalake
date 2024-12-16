@@ -20,24 +20,31 @@
 		},
 		"schema": [
 			{
+				"name": "CustomerKey",
 				"type": "String"
 			},
 			{
+				"name": "CustomerId",
 				"type": "String"
 			},
 			{
+				"name": "Customer",
 				"type": "String"
 			},
 			{
+				"name": "CCity",
 				"type": "String"
 			},
 			{
+				"name": "CStateProvince",
 				"type": "String"
 			},
 			{
+				"name": "CountryRegion",
 				"type": "String"
 			},
 			{
+				"name": "CPostalCode",
 				"type": "String"
 			}
 		]
