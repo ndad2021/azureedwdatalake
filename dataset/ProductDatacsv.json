@@ -15,35 +15,44 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
+				"name": "Category\t",
 				"type": "String"
 			},
 			{
+				"name": " Subcategory\t",
 				"type": "String"
 			},
 			{
+				"name": "Model\t",
 				"type": "String"
 			},
 			{
+				"name": "ListPrice\t",
 				"type": "String"
 			},
 			{
+				"name": "Color\t",
 				"type": "String"
 			},
 			{
+				"name": "StandardCost\t",
 				"type": "String"
 			},
 			{
+				"name": "Product\t",
 				"type": "String"
 			},
 			{
+				"name": " SKU",
 				"type": "String"
 			},
 			{
+				"name": "ProductKey",
 				"type": "String"
 			}
 		]

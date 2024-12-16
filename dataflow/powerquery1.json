@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"name": "CustomerData",
-					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~>  CustomerData",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> CustomerData",
 					"dataset": {
 						"referenceName": "CustomerData",
 						"type": "DatasetReference"
@@ -14,7 +14,7 @@
 				},
 				{
 					"name": "ProductDatacsv",
-					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  ProductDatacsv",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ProductDatacsv",
 					"dataset": {
 						"referenceName": "ProductDatacsv",
 						"type": "DatasetReference"
