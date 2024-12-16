@@ -62,8 +62,9 @@
 						"mappings": [
 							{
 								"source": {
+									"name": "SalesAmount",
 									"type": "String",
-									"ordinal": 1
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SalesAmount",
@@ -73,8 +74,9 @@
 							},
 							{
 								"source": {
+									"name": "TotalProductCost",
 									"type": "String",
-									"ordinal": 2
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "TotalProductCost",
@@ -84,8 +86,9 @@
 							},
 							{
 								"source": {
+									"name": "ProductStandardCost",
 									"type": "String",
-									"ordinal": 3
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ProductStandardCost",
@@ -95,8 +98,9 @@
 							},
 							{
 								"source": {
+									"name": "UnitPriceDiscountPct",
 									"type": "String",
-									"ordinal": 4
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "UnitPriceDiscountPct",
@@ -106,8 +110,9 @@
 							},
 							{
 								"source": {
+									"name": "ExtendedAmount",
 									"type": "String",
-									"ordinal": 5
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ExtendedAmount",
@@ -117,8 +122,9 @@
 							},
 							{
 								"source": {
+									"name": "UnitPrice",
 									"type": "String",
-									"ordinal": 6
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "UnitPrice",
@@ -128,8 +134,9 @@
 							},
 							{
 								"source": {
+									"name": "OrderQuantity",
 									"type": "String",
-									"ordinal": 7
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "OrderQuantity",
@@ -139,8 +146,9 @@
 							},
 							{
 								"source": {
+									"name": "SalesTerritoryKey",
 									"type": "String",
-									"ordinal": 8
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SalesTerritoryKey",
@@ -150,8 +158,9 @@
 							},
 							{
 								"source": {
+									"name": "ShipDateKey",
 									"type": "String",
-									"ordinal": 9
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ShipDateKey",
@@ -161,8 +170,9 @@
 							},
 							{
 								"source": {
+									"name": "DueDateKey",
 									"type": "String",
-									"ordinal": 10
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "DueDateKey",
@@ -172,8 +182,9 @@
 							},
 							{
 								"source": {
+									"name": "OrderDateKey",
 									"type": "String",
-									"ordinal": 11
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "OrderDateKey",
@@ -183,8 +194,9 @@
 							},
 							{
 								"source": {
+									"name": "CustomerKey",
 									"type": "String",
-									"ordinal": 12
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "CustomerKey",
@@ -194,8 +206,9 @@
 							},
 							{
 								"source": {
+									"name": "ResellerKey",
 									"type": "String",
-									"ordinal": 13
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "ResellerKey",
@@ -205,8 +218,9 @@
 							},
 							{
 								"source": {
+									"name": "SalesOrderLineKey",
 									"type": "String",
-									"ordinal": 14
+									"physicalType": "String"
 								},
 								"sink": {
 									"name": "SalesOrderLineKey",
