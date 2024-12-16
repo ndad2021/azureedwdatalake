@@ -40,20 +40,7 @@
 						"preCopyScript": "truncate table dbo.SalesOrder"
 					},
 					"enableStaging": false,
-					"validateDataConsistency": true,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Warning",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "AzureStorageLinkedService",
-								"type": "LinkedServiceReference"
-							}
-						}
-					},
+					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
