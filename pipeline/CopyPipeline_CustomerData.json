@@ -16,7 +16,7 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "/CustomerData.csv"
+						"value": "customer//CustomerData.csv"
 					},
 					{
 						"name": "Destination",
