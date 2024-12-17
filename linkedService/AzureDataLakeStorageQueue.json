@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStorageQueue",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://fdistoragedemo.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime2",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
